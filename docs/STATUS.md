@@ -23,4 +23,8 @@ V4 is implemented: `HnswIndex` assigns random hierarchy levels, connects a
 bounded neighbor graph, and searches it with configurable `m` and `ef_search`.
 Its retrieval result IDs and recall are tested against the exact baseline.
 
-Exact next step: V5, add snapshots and a write-ahead log with crash recovery.
+V5 is implemented: mutations are fsynced to a JSONL write-ahead log before
+visibility, then atomically compacted into a snapshot. Restart tests confirm
+that snapshot and post-snapshot mutations recover without loss.
+
+Exact next step: V6, expose add/search/delete through a validated FastAPI API.

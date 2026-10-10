@@ -39,3 +39,10 @@
 - `m` controls how many links a vector can retain; `ef_search` controls how widely search explores.
 - The exact V1 index gives us a trustworthy answer to compare approximate search against.
 - Fixed random seeds make the graph and its tests repeatable.
+
+## V5
+
+- A write-ahead log writes a change to disk before the program says it succeeded.
+- On restart, the store reads the last snapshot and then replays newer log lines.
+- A snapshot is written to a temporary file and renamed, so readers do not see a half-written snapshot.
+- `fsync` asks the operating system to flush each log record before returning.

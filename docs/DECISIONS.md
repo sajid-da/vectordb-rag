@@ -13,3 +13,4 @@
 - Unanswerable cases are excluded from retrieval recall and MRR; those metrics require a known relevant chunk; rejected treating missing evidence as a miss.
 - HNSW uses deterministic random seeding for tests; makes graph behavior reproducible; rejected non-deterministic test construction.
 - `m` and `ef_search` are runtime tuning knobs; lets users trade memory/latency for recall; rejected fixed hidden constants.
+- JSONL WAL plus atomic JSON snapshots for V5; easy to inspect and test locally; rejected a database before multi-process needs exist.

@@ -7,6 +7,7 @@
 - [x] V2: basic RAG pipeline with deterministic fakes.
 - [x] V3: self-made 100-case retrieval evaluation set and metrics.
 - [x] V4: HNSW insert/search with exact-baseline recall tests.
+- [x] V5: write-ahead-log snapshots and restart recovery tests.
 
 ## In progress
 
@@ -14,4 +15,4 @@
 
 ## Not started
 
-- [ ] V5-V10: persistence, service, benchmarks, and polish.
+- [ ] V6-V10: service, benchmarks, and polish.
