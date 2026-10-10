@@ -11,5 +11,9 @@ Python 3.12 CI runtime; `mypy` is also not installed locally.
 V1 is implemented: `vectordb_rag.search` compares every non-zero stored vector
 using cosine similarity, returning its index and score in descending order.
 
-Exact next step: V2, add simple text chunking, embedding, retrieval, and a
-deterministic fake answer provider for an end-to-end RAG path.
+V2 is implemented: `vectordb_rag.rag` chunks documents, embeds and retrieves
+them through V1, then returns a generated answer plus its source chunks. Tests
+use deterministic embedding and answer fakes rather than an external LLM.
+
+Exact next step: V3, create a 100+ question evaluation set with expected source
+chunks and add recall@k and MRR measurement.

@@ -7,3 +7,5 @@
 - No model or external API in V0; the milestone needs only a liveness endpoint; rejected premature embedding integration.
 - NumPy powers exact vector math; required by the specified stack; rejected hand-written numeric loops.
 - Zero vectors raise a clear validation error; cosine similarity is mathematically undefined; rejected silently assigning a score.
+- V2 uses provider protocols and deterministic fakes; preserves a real-model integration seam while keeping tests free and repeatable; rejected live LLM calls in tests.
+- Chunks are fixed-size word windows initially; transparent and easy to test; rejected complex overlapping chunking before an evaluation set exists.

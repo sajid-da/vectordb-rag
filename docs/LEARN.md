@@ -15,3 +15,11 @@
 - `SearchResult` pairs a vector's original position with its score.
 - Later HNSW search will be checked against this simple implementation.
 - The tests use tiny vectors whose correct order can be worked out by hand.
+
+## V2
+
+- A chunk is a small named piece of a source document that can be retrieved later.
+- The embedding provider and answer provider are interfaces, so real models can be swapped in without changing search code.
+- `RagPipeline` embeds chunks, finds the closest ones, and gives only those chunks to the answer provider.
+- `RagAnswer` includes the chunks used, which is the first step toward citations.
+- Tests replace model calls with simple fakes so they stay fast and repeatable.
