@@ -38,4 +38,7 @@ HNSW reaches 0.964 recall@10 but is slower than FAISS; exact figures are in
 V8 is implemented: answers abstain below a configurable retrieval score, and
 citations are accepted only when their quoted text appears verbatim in a source.
 
-Exact next step: V9, add versioned index metadata, rollback, and metrics.
+V9 is implemented: named snapshot versions can be restored with rollback, and
+`GET /metrics` exposes request/error counters in Prometheus text format.
+
+Exact next step: V10, complete Docker packaging, README polish, and release prep.

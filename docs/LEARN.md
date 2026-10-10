@@ -64,3 +64,9 @@
 
 - Retrieval scores give a simple signal for when the system should decline to answer.
 - A citation is useful only when a reader can locate its quoted words in the source.
+
+## V9
+
+- A versioned snapshot is a named copy of known-good persisted data.
+- Rollback replaces the active snapshot atomically with that known-good copy.
+- Prometheus collects plain-text counters by polling the `/metrics` endpoint.

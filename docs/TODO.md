@@ -11,6 +11,7 @@
 - [x] V6: validated, rate-limited vector REST service.
 - [x] V7: measured HNSW-versus-FAISS synthetic benchmark.
 - [x] V8: cited RAG verification and score-based abstention.
+- [x] V9: versioned snapshots, rollback, and Prometheus counters.
 
 ## In progress
 
@@ -18,4 +19,4 @@
 
 ## Not started
 
-- [ ] V9-V10: MLOps and polish.
+- [ ] V10: polish and deployment packaging.
