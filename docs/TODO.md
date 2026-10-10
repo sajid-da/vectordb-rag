@@ -8,6 +8,7 @@
 - [x] V3: self-made 100-case retrieval evaluation set and metrics.
 - [x] V4: HNSW insert/search with exact-baseline recall tests.
 - [x] V5: write-ahead-log snapshots and restart recovery tests.
+- [x] V6: validated, rate-limited vector REST service.
 
 ## In progress
 
@@ -15,4 +16,4 @@
 
 ## Not started
 
-- [ ] V6-V10: service, benchmarks, and polish.
+- [ ] V7-V10: benchmarks and polish.

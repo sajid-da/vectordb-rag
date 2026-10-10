@@ -27,4 +27,8 @@ V5 is implemented: mutations are fsynced to a JSONL write-ahead log before
 visibility, then atomically compacted into a snapshot. Restart tests confirm
 that snapshot and post-snapshot mutations recover without loss.
 
-Exact next step: V6, expose add/search/delete through a validated FastAPI API.
+V6 is implemented: FastAPI exposes validated `POST /vectors`, `POST /search`,
+and `DELETE /vectors/{id}` endpoints. The service serializes mutations and uses
+a bounded, in-memory per-client request limiter.
+
+Exact next step: V7, benchmark recall, latency, and memory against FAISS.

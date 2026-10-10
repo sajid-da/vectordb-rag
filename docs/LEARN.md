@@ -46,3 +46,10 @@
 - On restart, the store reads the last snapshot and then replays newer log lines.
 - A snapshot is written to a temporary file and renamed, so readers do not see a half-written snapshot.
 - `fsync` asks the operating system to flush each log record before returning.
+
+## V6
+
+- FastAPI converts HTTP requests into typed Python objects before application code receives them.
+- The service layer keeps HTTP details separate from persistence and search logic.
+- A lock protects reads and writes from observing a partially applied change in this process.
+- The small rate limiter remembers recent request times for each client address.
