@@ -21,7 +21,7 @@ flowchart LR
   API --> Store[WAL + snapshots]
   API --> Search[Exact or HNSW search]
   Search --> RAG[Cited RAG pipeline]
-  API --> Metrics[/metrics]
+  API --> Metrics["/metrics endpoint"]
 ```
 
 ## Results
