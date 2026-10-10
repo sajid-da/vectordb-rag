@@ -31,3 +31,11 @@
 - MRR rewards putting the first correct chunk closer to the top.
 - The 100 cases are deliberately labeled self-made synthetic data, not real-user evidence.
 - Unanswerable questions have no expected chunk and will later test abstention separately.
+
+## V4
+
+- HNSW is a graph of nearby vectors arranged in layers; upper layers help start searches near the target.
+- Insertions find good neighbors, then add a few two-way links instead of comparing every vector later.
+- `m` controls how many links a vector can retain; `ef_search` controls how widely search explores.
+- The exact V1 index gives us a trustworthy answer to compare approximate search against.
+- Fixed random seeds make the graph and its tests repeatable.

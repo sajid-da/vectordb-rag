@@ -11,3 +11,5 @@
 - Chunks are fixed-size word windows initially; transparent and easy to test; rejected complex overlapping chunking before an evaluation set exists.
 - V3 evaluation cases are self-made synthetic fixtures; they validate evaluation mechanics, not real RAG quality; rejected fabricated production-quality claims.
 - Unanswerable cases are excluded from retrieval recall and MRR; those metrics require a known relevant chunk; rejected treating missing evidence as a miss.
+- HNSW uses deterministic random seeding for tests; makes graph behavior reproducible; rejected non-deterministic test construction.
+- `m` and `ef_search` are runtime tuning knobs; lets users trade memory/latency for recall; rejected fixed hidden constants.

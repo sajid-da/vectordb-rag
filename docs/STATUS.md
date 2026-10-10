@@ -19,5 +19,8 @@ V3 is implemented: `data/eval_cases.jsonl` contains 100 self-made cases, 80
 answerable and 20 intentionally unanswerable. The evaluation module loads it
 and calculates recall@k and MRR for answerable queries.
 
-Exact next step: V4, build the HNSW approximate-nearest-neighbor index and
-compare its recall against V1's exact search baseline.
+V4 is implemented: `HnswIndex` assigns random hierarchy levels, connects a
+bounded neighbor graph, and searches it with configurable `m` and `ef_search`.
+Its retrieval result IDs and recall are tested against the exact baseline.
+
+Exact next step: V5, add snapshots and a write-ahead log with crash recovery.
