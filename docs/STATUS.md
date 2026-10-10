@@ -8,5 +8,8 @@ Known issues: CI is configured but cannot be confirmed until this repository is
 pushed to a GitHub remote. The local machine has Python 3.14, not the intended
 Python 3.12 CI runtime; `mypy` is also not installed locally.
 
-Exact next step: V1, implement exact brute-force cosine similarity and test it
-with small, known vectors.
+V1 is implemented: `vectordb_rag.search` compares every non-zero stored vector
+using cosine similarity, returning its index and score in descending order.
+
+Exact next step: V2, add simple text chunking, embedding, retrieval, and a
+deterministic fake answer provider for an end-to-end RAG path.
