@@ -23,3 +23,11 @@
 - `RagPipeline` embeds chunks, finds the closest ones, and gives only those chunks to the answer provider.
 - `RagAnswer` includes the chunks used, which is the first step toward citations.
 - Tests replace model calls with simple fakes so they stay fast and repeatable.
+
+## V3
+
+- An evaluation case records a question and the source chunks that should be found.
+- Recall@k asks whether a correct chunk appeared in the first k results.
+- MRR rewards putting the first correct chunk closer to the top.
+- The 100 cases are deliberately labeled self-made synthetic data, not real-user evidence.
+- Unanswerable questions have no expected chunk and will later test abstention separately.

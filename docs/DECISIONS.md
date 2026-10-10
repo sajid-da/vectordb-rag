@@ -9,3 +9,5 @@
 - Zero vectors raise a clear validation error; cosine similarity is mathematically undefined; rejected silently assigning a score.
 - V2 uses provider protocols and deterministic fakes; preserves a real-model integration seam while keeping tests free and repeatable; rejected live LLM calls in tests.
 - Chunks are fixed-size word windows initially; transparent and easy to test; rejected complex overlapping chunking before an evaluation set exists.
+- V3 evaluation cases are self-made synthetic fixtures; they validate evaluation mechanics, not real RAG quality; rejected fabricated production-quality claims.
+- Unanswerable cases are excluded from retrieval recall and MRR; those metrics require a known relevant chunk; rejected treating missing evidence as a miss.

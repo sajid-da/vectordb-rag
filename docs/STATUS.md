@@ -15,5 +15,9 @@ V2 is implemented: `vectordb_rag.rag` chunks documents, embeds and retrieves
 them through V1, then returns a generated answer plus its source chunks. Tests
 use deterministic embedding and answer fakes rather than an external LLM.
 
-Exact next step: V3, create a 100+ question evaluation set with expected source
-chunks and add recall@k and MRR measurement.
+V3 is implemented: `data/eval_cases.jsonl` contains 100 self-made cases, 80
+answerable and 20 intentionally unanswerable. The evaluation module loads it
+and calculates recall@k and MRR for answerable queries.
+
+Exact next step: V4, build the HNSW approximate-nearest-neighbor index and
+compare its recall against V1's exact search baseline.
