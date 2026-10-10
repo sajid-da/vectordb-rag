@@ -15,3 +15,4 @@
 - `m` and `ef_search` are runtime tuning knobs; lets users trade memory/latency for recall; rejected fixed hidden constants.
 - JSONL WAL plus atomic JSON snapshots for V5; easy to inspect and test locally; rejected a database before multi-process needs exist.
 - Fixed-window in-memory request limiting for V6; zero dependency and sufficient for the single-process prototype; rejected a distributed limiter before multi-worker deployment.
+- FAISS `IndexFlatIP` is the V7 baseline; an established exact CPU comparator; rejected comparing only against our own exact implementation.

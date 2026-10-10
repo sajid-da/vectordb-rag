@@ -53,3 +53,9 @@
 - The service layer keeps HTTP details separate from persistence and search logic.
 - A lock protects reads and writes from observing a partially applied change in this process.
 - The small rate limiter remembers recent request times for each client address.
+
+## V7
+
+- A benchmark measures one fixed workload so competing implementations can be compared fairly.
+- Recall measures how many of the exact top results the approximate HNSW search found.
+- FAISS is much faster here; the result is recorded rather than hidden.

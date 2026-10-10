@@ -9,6 +9,7 @@
 - [x] V4: HNSW insert/search with exact-baseline recall tests.
 - [x] V5: write-ahead-log snapshots and restart recovery tests.
 - [x] V6: validated, rate-limited vector REST service.
+- [x] V7: measured HNSW-versus-FAISS synthetic benchmark.
 
 ## In progress
 
@@ -16,4 +17,4 @@
 
 ## Not started
 
-- [ ] V7-V10: benchmarks and polish.
+- [ ] V8-V10: citation RAG, MLOps, and polish.

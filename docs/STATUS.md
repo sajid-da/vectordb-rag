@@ -31,4 +31,8 @@ V6 is implemented: FastAPI exposes validated `POST /vectors`, `POST /search`,
 and `DELETE /vectors/{id}` endpoints. The service serializes mutations and uses
 a bounded, in-memory per-client request limiter.
 
-Exact next step: V7, benchmark recall, latency, and memory against FAISS.
+V7 is implemented and measured on a self-made 500-vector dataset. The local
+HNSW reaches 0.964 recall@10 but is slower than FAISS; exact figures are in
+`docs/METRICS.md`.
+
+Exact next step: V8, add citation verification and abstention to RAG answers.
