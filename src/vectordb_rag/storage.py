@@ -71,14 +71,31 @@ class PersistentVectorStore:
             }
         if not self._wal.exists():
             return
-        for line in self._wal.read_text(encoding="utf-8").splitlines():
-            operation = json.loads(line)
-            identifier = operation["id"]
-            if operation["operation"] == "add":
-                self._vectors[identifier] = StoredVector(
-                    identifier, operation["values"]
-                )
-            elif operation["operation"] == "delete":
-                self._vectors.pop(identifier, None)
-            else:
-                raise ValueError("unknown WAL operation")
+
+        raw_lines = self._wal.read_text(encoding="utf-8").splitlines()
+        lines = [line for line in raw_lines if line.strip()]
+        total_lines = len(lines)
+
+        for index, line in enumerate(lines, 1):
+            is_last = index == total_lines
+            try:
+                op = json.loads(line)
+                if not isinstance(op, dict) or "operation" not in op or "id" not in op:
+                    raise ValueError("invalid WAL record format")
+
+                identifier = str(op["id"])
+                op_type = op["operation"]
+
+                if op_type == "add":
+                    self._vectors[identifier] = StoredVector(identifier, op["values"])
+                elif op_type == "delete":
+                    self._vectors.pop(identifier, None)
+                else:
+                    raise ValueError(f"unknown WAL operation type: {op_type}")
+
+            except (json.JSONDecodeError, KeyError, ValueError, TypeError) as error:
+                if is_last:
+                    break
+                raise RuntimeError(
+                    f"Corrupted WAL record at line {index}/{total_lines}: {error}"
+                ) from error

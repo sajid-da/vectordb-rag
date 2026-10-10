@@ -28,7 +28,9 @@ def main() -> None:
     start = time.perf_counter()
     hnsw_results = [index.search(query.astype(np.float64), 10, 64) for query in queries]
     hnsw_query_seconds = time.perf_counter() - start
-    exact_results = [exact_search(vectors.astype(np.float64), query, 10) for query in queries]
+    exact_results = [
+        exact_search(vectors.astype(np.float64), query, 10) for query in queries
+    ]
     recall = sum(
         len({x.index for x in approximate} & {x.index for x in exact}) / 10
         for approximate, exact in zip(hnsw_results, exact_results, strict=True)
