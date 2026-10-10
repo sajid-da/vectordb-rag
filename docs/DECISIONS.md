@@ -19,3 +19,5 @@
 - Citation checks require verbatim spans; makes false citations mechanically detectable; rejected unverified model-provided citations.
 - Snapshot copies are named versions for V9 rollback; simple local recovery mechanism; rejected a remote model registry before deployment exists.
 - Prometheus text exposition is implemented directly for two counters; avoids a dependency for the prototype; rejected adding a metrics SDK prematurely.
+- Docker uses `python:3.12-slim`; aligns the runtime with CI; rejected an unpinned latest image.
+- Docker build remains unmeasured locally because Docker Desktop's daemon is unavailable; CI is configured to perform it when published.

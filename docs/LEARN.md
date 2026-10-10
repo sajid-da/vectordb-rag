@@ -70,3 +70,9 @@
 - A versioned snapshot is a named copy of known-good persisted data.
 - Rollback replaces the active snapshot atomically with that known-good copy.
 - Prometheus collects plain-text counters by polling the `/metrics` endpoint.
+
+## V10
+
+- A Dockerfile gives every machine the same runtime and launch command.
+- CI now builds that container to catch packaging mistakes before release.
+- The README separates measured results from limitations so claims stay honest.

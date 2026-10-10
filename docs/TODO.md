@@ -12,6 +12,7 @@
 - [x] V7: measured HNSW-versus-FAISS synthetic benchmark.
 - [x] V8: cited RAG verification and score-based abstention.
 - [x] V9: versioned snapshots, rollback, and Prometheus counters.
+- [x] V10: Docker packaging, CI Docker build, README and release prep.
 
 ## In progress
 
@@ -19,4 +20,4 @@
 
 ## Not started
 
-- [ ] V10: polish and deployment packaging.
+- [ ] Publish to GitHub and choose a free deployment host (account required).

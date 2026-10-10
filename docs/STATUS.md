@@ -41,4 +41,10 @@ citations are accepted only when their quoted text appears verbatim in a source.
 V9 is implemented: named snapshot versions can be restored with rollback, and
 `GET /metrics` exposes request/error counters in Prometheus text format.
 
-Exact next step: V10, complete Docker packaging, README polish, and release prep.
+V10 is implemented locally: Docker packaging, Dependabot, CI Docker-build
+configuration, README results/security notes, and release-prep documentation.
+The local Docker daemon was unavailable, so the container build is configured
+but not locally verified.
+
+Exact next step: publish the local repository to GitHub, then choose a free
+hosting account for the optional public demo.
