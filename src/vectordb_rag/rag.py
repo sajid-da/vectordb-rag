@@ -25,6 +25,7 @@ class RagAnswer:
 
     text: str
     sources: list[Chunk]
+    abstained: bool = False
 
 
 class EmbeddingProvider(Protocol):
@@ -74,13 +75,26 @@ class RagPipeline:
         chunk_vectors = [embedding_provider.embed(chunk.text) for chunk in chunks]
         self._vectors = np.vstack(chunk_vectors)
 
-    def answer(self, question: str, limit: int = 3) -> RagAnswer:
+    def answer(
+        self, question: str, limit: int = 3, minimum_score: float = 0.2
+    ) -> RagAnswer:
         """Answer one question and return the source chunks used as context."""
         results = exact_search(
             self._vectors,
             self._embedding_provider.embed(question),
             limit,
         )
+        if not results or results[0].score < minimum_score:
+            return RagAnswer(
+                text="I do not have enough supporting context to answer that.",
+                sources=[],
+                abstained=True,
+            )
         sources = [self._chunks[result.index] for result in results]
         text = self._answer_provider.answer(question, [chunk.text for chunk in sources])
         return RagAnswer(text=text, sources=sources)
+
+
+def verify_citation(quoted_span: str, source: Chunk) -> bool:
+    """Confirm that a citation quote occurs verbatim in its source chunk."""
+    return bool(quoted_span) and quoted_span in source.text

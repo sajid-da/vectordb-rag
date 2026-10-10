@@ -16,3 +16,4 @@
 - JSONL WAL plus atomic JSON snapshots for V5; easy to inspect and test locally; rejected a database before multi-process needs exist.
 - Fixed-window in-memory request limiting for V6; zero dependency and sufficient for the single-process prototype; rejected a distributed limiter before multi-worker deployment.
 - FAISS `IndexFlatIP` is the V7 baseline; an established exact CPU comparator; rejected comparing only against our own exact implementation.
+- Citation checks require verbatim spans; makes false citations mechanically detectable; rejected unverified model-provided citations.

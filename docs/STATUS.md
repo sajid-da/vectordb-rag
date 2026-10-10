@@ -35,4 +35,7 @@ V7 is implemented and measured on a self-made 500-vector dataset. The local
 HNSW reaches 0.964 recall@10 but is slower than FAISS; exact figures are in
 `docs/METRICS.md`.
 
-Exact next step: V8, add citation verification and abstention to RAG answers.
+V8 is implemented: answers abstain below a configurable retrieval score, and
+citations are accepted only when their quoted text appears verbatim in a source.
+
+Exact next step: V9, add versioned index metadata, rollback, and metrics.

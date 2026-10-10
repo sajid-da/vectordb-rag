@@ -10,6 +10,7 @@
 - [x] V5: write-ahead-log snapshots and restart recovery tests.
 - [x] V6: validated, rate-limited vector REST service.
 - [x] V7: measured HNSW-versus-FAISS synthetic benchmark.
+- [x] V8: cited RAG verification and score-based abstention.
 
 ## In progress
 
@@ -17,4 +18,4 @@
 
 ## Not started
 
-- [ ] V8-V10: citation RAG, MLOps, and polish.
+- [ ] V9-V10: MLOps and polish.

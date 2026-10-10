@@ -2,7 +2,13 @@
 
 import numpy as np
 
-from vectordb_rag.rag import AnswerProvider, Chunk, RagPipeline, chunk_text
+from vectordb_rag.rag import (
+    AnswerProvider,
+    Chunk,
+    RagPipeline,
+    chunk_text,
+    verify_citation,
+)
 
 
 class FakeEmbeddingProvider:
@@ -50,3 +56,22 @@ def test_rag_pipeline_retrieves_context_and_returns_its_source() -> None:
 
     assert result.text == "Answer: The library is open on Monday."
     assert result.sources == [chunks[0]]
+
+
+def test_pipeline_abstains_when_retrieval_score_is_too_low() -> None:
+    chunk = Chunk(id="facts:0", text="The library is open on Monday.")
+    embeddings = FakeEmbeddingProvider(
+        {chunk.text: [1.0, 0.0], "unrelated": [0.0, 1.0]}
+    )
+
+    result = RagPipeline([chunk], embeddings, FakeAnswerProvider()).answer("unrelated")
+
+    assert result.abstained
+    assert result.sources == []
+
+
+def test_citation_verification_requires_a_verbatim_source_span() -> None:
+    source = Chunk(id="facts:0", text="The library is open on Monday.")
+
+    assert verify_citation("open on Monday", source)
+    assert not verify_citation("open every day", source)
